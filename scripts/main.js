@@ -134,7 +134,7 @@ const pomodoro = {
     initTimer: function() {
         this.timerInstance = new Timer({
             container: '.pomodoro-app__timer',
-            audioUrl: './finish.mp3',
+            audioUrl: './assets/finish.mp3',
             radius: document.body.clientWidth > 540 ? 175 :  140,
             time: this[this.activeTimer],
             step: localStorage.getItem('step') || 0
