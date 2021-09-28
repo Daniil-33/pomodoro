@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;700&family=Roboto&family=Roboto+Slab&family=Space+Mono&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="pulse.css">
+    <title>Pomodoro</title>
+</head>
+<body>
+    <div class="pomodoro-app">
+        <div class="pomodoro-app__title">
+            pomodoro
+        </div>
+        <div class="pomodoro-app__radio">
+            <div class="pomodoro-app__radio-group">
+                <div class="pomodoro-app__radio-group-item">
+                    <input id="radio-1" type="radio" name="radio" value="pomodoroTimer" checked>
+                    <label for="radio-1">Pomodoro</label>
+                </div>
+                <div class="pomodoro-app__radio-group-item">
+                    <input id="radio-2" type="radio" name="radio" value="shortBreakTimer">
+                    <label for="radio-2">Short Break</label>
+                </div>
+                <div class="pomodoro-app__radio-group-item">
+                    <input id="radio-3" type="radio" name="radio" value="longBreakTimer">
+                    <label for="radio-3">Long Break</label>
+                </div>
+            </div>
+        </div>
+        <div class="pomodoro-app__timer"></div>
+        <div class="pomodoro-app__settings">
+            <button id="modal-btn" class="pomodoro-app__settings-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-settings" width="60" height="60" viewBox="0 0 24 24" stroke-width="1.5" stroke="#fff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z" />
+                    <circle cx="12" cy="12" r="3" />
+                  </svg>
+            </button>
+
+
+            <div id="modal-wrapper" class="pomodoro-app__settings-modal--wrapper">
+                <div id="modal-body" class="pomodoro-app__settings-modal">
+                    <div class="pomodoro-app__settings-modal-header">
+                        <div>Settings</div>
+                        <div id="modal-close">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#979797" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                <line x1="18" y1="6" x2="6" y2="18" />
+                                <line x1="6" y1="6" x2="18" y2="18" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="pomodoro-app__settings-modal-body">
+                        <div class="pomodoro-app__settings-modal-block">
+                            <div class="pomodoro-app__settings-modal-block-heading">
+                                TIME (MINUTES)
+                            </div>
+                            <div class="pomodoro-app__settings-modal-timer">
+                                <fieldset>
+                                    <label for="pomodoro">pomodoro</label>
+                                    <input id="pomodoro" min="1" type="number">
+                                </fieldset>
+                                <fieldset>
+                                    <label for="long">long break</label>
+                                    <input id="long" min="1" type="number">
+                                </fieldset>
+                                <fieldset>
+                                    <label for="short">short break</label>
+                                    <input id="short" min="1" type="number">
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="pomodoro-app__settings-modal-block">
+                            <div style="display: flex; width: 100%; align-items: center; justify-content: space-between;">
+                                <div class="pomodoro-app__settings-modal-block-heading">
+                                    FONT
+                                </div>
+                                <div class="pomodoro-app__settings-modal-fonts">
+                                    <form>
+                                    <div class="pomodoro-app__settings-modal-fonts-item">
+                                        <input id="font-1" type="radio" name="radio" value="Kumbh Sans">
+                                        <label for="font-1" style="font-family: 'Kumbh Sans';">Aa</label>
+                                    </div>
+                                    <div class="pomodoro-app__settings-modal-fonts-item">
+                                        <input id="font-2" type="radio" name="radio" value="Roboto Slab">
+                                        <label for="font-2" style="font-family: 'Roboto Slab';">Aa</label>
+                                    </div>
+                                    <div class="pomodoro-app__settings-modal-fonts-item">
+                                        <input id="font-3" type="radio" name="radio" value="Space Mono">
+                                        <label for="font-3" style="font-family: 'Space Mono';">Aa</label>
+                                    </div>
+                                </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pomodoro-app__settings-modal-block">
+                            <div style="display: flex; width: 100%; align-items: center; justify-content: space-between;">
+                                <div class="pomodoro-app__settings-modal-block-heading">
+                                    COLOR
+                                </div>
+                                <div class="pomodoro-app__settings-modal-colors">
+                                    <form>
+                                    <div class="pomodoro-app__settings-modal-colors-item">
+                                        <input id="color-1" type="radio" name="radio" value="pomodoro-app--purple-theme">
+                                        <label for="color-1" style="background: #D881F8;"></label>
+                                    </div>
+                                    <div class="pomodoro-app__settings-modal-colors-item">
+                                        <input id="color-2" type="radio" name="radio" value="pomodoro-app--blue-theme">
+                                        <label for="color-2" style="background: #70F3F8;"></label>
+                                    </div>
+                                    <div class="pomodoro-app__settings-modal-colors-item">
+                                        <input id="color-3" type="radio" name="radio" value="pomodoro-app--red-theme">
+                                        <label for="color-3" style="background: #F87070;"></label>
+                                    </div>
+                                </form>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="pomodoro-app__submit-btn">Apply</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="./scripts/main.js"></script>
+</body>
+</html>
